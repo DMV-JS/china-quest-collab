@@ -11,6 +11,7 @@ import ScratchCard  from './ScratchCard';
 import CityQuest    from './CityQuest';
 import FoodGallery  from './FoodGallery';
 import HanfuStyle   from './HanfuStyle';
+import Zodiac       from './Zodiac';
 import Instruments  from './Instruments';
 import Zodiac       from './Zodiac';
 
