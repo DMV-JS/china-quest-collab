@@ -61,6 +61,18 @@ export function ChinaQuestHome({ mode="mobile" }){
   const petals=useMemo(()=>Array.from({length:12},(_,i)=>({x:i*8+2,delay:i*.8,dur:6+(i%3)*2,rot:i*30})),[]);
 
   useEffect(()=>{
+    const id=activeModule||"";
+    if(window.location.hash.slice(1)!==id)
+      window.history.replaceState(null,"",id?"#"+id:window.location.pathname+window.location.search);
+  },[activeModule]);
+
+  useEffect(()=>{
+    const onHash=()=>setActiveModule(window.location.hash.slice(1)||null);
+    window.addEventListener("hashchange",onHash);
+    return()=>window.removeEventListener("hashchange",onHash);
+  },[]);
+
+  useEffect(()=>{
     const el=document.createElement("link");
     el.rel="stylesheet";
     el.href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@600&display=swap";
